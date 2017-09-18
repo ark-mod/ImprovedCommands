@@ -26,6 +26,9 @@ Example: `DestroyDinosForTeamId 123456789`
 This plugin is based on Michidu's work on Ark-Server-Plugins and ARK Beyond API. The basic plumbing code is copied directly from those plugins.
 
 ## Links
+
 My ARK Beyond API Fork (https://github.com/tsebring/ARK-Server-Beyond-API)
+
 ARK Beyond API by Michidu (https://github.com/Michidu/ARK-Server-Beyond-API)
+
 Ark-Server-Plugins (https://github.com/Michidu/Ark-Server-Plugins)
