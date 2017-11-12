@@ -21,6 +21,20 @@ Example: `DestroyStructuresForTeamIdAtPosition 1234567890 85000.0 275000.0 1000 
 * **DestroyDinosForTeamId `<team id>`**: Destroys all tamed dinos owned by a player or team.
 Example: `DestroyDinosForTeamId 123456789`
 
+* **FeedDinosForTeamId `<team id>`**: Feed all dinos owned by a player or team.
+Example: `FeedDinosForTeamId 123456789`
+
+* **WyvernEggs `<action>`**: List or destroy fertilized wyvern eggs on the map.
+  * **`WyvernEggs  list`**: List eggs.
+
+  * **`WyvernEggs  destroy_spoiled`**: Destroy spoiled eggs.
+
+  * **`WyvernEggs  destroy_spoiled_including_dropped_by_player`**: Destroy spoiled eggs, even ones that have been dropped by a player.
+
+  * **`WyvernEggs  destroy_all`**: Destroy all eggs.
+
+  * **`WyvernEggs  destroy_all_including_dropped_by_player`**: Destroy all eggs, even ones that have been dropped by a player.
+
 ## Acknowledgements
 
 This plugin is based on Michidu's work on Ark-Server-Plugins and ARK Beyond API. The basic plumbing code is copied directly from those plugins.
