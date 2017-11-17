@@ -118,7 +118,7 @@ void WyvernEggs(RCONClientConnection* rconClientConnection, RCONPacket* rconPack
 						delete dinoClassName;
 
 						char* levelUpPoints = item->GetEggNumberOfLevelUpPointsAppliedField();
-						int baseLevel = 0;
+						int baseLevel = 1;
 						for (uint32_t j = 0; j < 12; j++) baseLevel += levelUpPoints[j];
 
 						ss << dinoClassNameStr << " (lvl " << baseLevel;
