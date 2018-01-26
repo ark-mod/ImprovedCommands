@@ -1,0 +1,84 @@
+{
+    "Commands": {
+        "DestroyMyDino_Chat": {
+            "Command": "/destroymydino",
+            "Enabled": true,
+            "Permissions": false,
+            "Method": "destroy"
+        },
+        "DoRespec_Console": {
+            "Command": "DoRespec",
+            "Enabled": true
+        },
+        "DoRespec_Rcon": {
+            "Command": "DoRespec",
+            "Enabled": true
+        },
+        "DestroyAllStructuresForTeamId_Console": {
+            "Command": "DestroyAllStructuresForTeamId",
+            "Enabled": true
+        },
+        "DestroyAllStructuresForTeamId_Rcon": {
+            "Command": "DestroyAllStructuresForTeamId",
+            "Enabled": true
+        },
+        "DestroyStructuresForTeamIdAtPosition_Console": {
+            "Command": "DestroyStructuresForTeamIdAtPosition",
+            "Enabled": true
+        },
+        "DestroyStructuresForTeamIdAtPosition_Rcon": {
+            "Command": "DestroyStructuresForTeamIdAtPosition",
+            "Enabled": true
+        },
+        "DestroyDinosForTeamId_Console": {
+            "Command": "DestroyDinosForTeamId",
+            "Enabled": true
+        },
+        "DestroyDinosForTeamId_Rcon": {
+            "Command": "DestroyDinosForTeamId",
+            "Enabled": true
+        },
+        "DroppedEggs_Console": {
+            "Command": "DroppedEggs",
+            "Enabled": true,
+            "ClassNames": [
+                "DroppedItemGeneric_FertilizedEgg_Wyvern_C",
+                "DroppedItemGeneric_FertilizedEgg_RockDrake_C"
+            ]
+        },
+        "DroppedEggs_Rcon": {
+            "Command": "DroppedEggs",
+            "Enabled": true,
+            "ClassNames": [
+                "DroppedItemGeneric_FertilizedEgg_Wyvern_C",
+                "DroppedItemGeneric_FertilizedEgg_RockDrake_C"
+            ]
+        },
+        "FeedDinosForTeamId_Console": {
+            "Command": "FeedDinosForTeamId",
+            "Enabled": true
+        },
+        "FeedDinosForTeamId_Rcon": {
+            "Command": "FeedDinosForTeamId",
+            "Enabled": true
+        },
+        "ImprintOn_Console": {
+            "Command": "ImprintOn",
+            "Enabled": true
+        },
+        "MyDinoStats_Chat": {
+            "Command": "/mydinostats",
+            "Enabled": true,
+            "Permissions": false
+        },
+        "NextImprint_Console": {
+            "Command": "NextImprint",
+            "Enabled": true
+        },
+        "Suicide_Chat": {
+            "Command": "/suicide",
+            "Enabled": true,
+            "Permissions": false
+        }
+    }
+}

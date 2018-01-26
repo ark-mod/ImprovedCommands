@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{26CE17E3-A40E-43EF-A538-9C1BE4050303}</ProjectGuid>
     <RootNamespace>ImprovedCommands</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\ArkApi\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\ArkApi\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\ArkApi2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\ArkApi2\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -107,19 +107,44 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS; _WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>permissions.dll</DelayLoadDLLs>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Commands\DestroyAllStructuresForTeamIdCommand.cpp" />
+    <ClCompile Include="Commands\DestroyDinosForTeamIdCommand.cpp" />
+    <ClCompile Include="Commands\DestroyMyDinoCommand.cpp" />
+    <ClCompile Include="Commands\DestroyStructuresForTeamIdAtPositionCommand.cpp" />
+    <ClCompile Include="Commands\DoRespecCommand.cpp" />
+    <ClCompile Include="Commands\FeedDinosForTeamIdCommand.cpp" />
+    <ClCompile Include="Commands\ImprintOnCommand.cpp" />
+    <ClCompile Include="Commands\MyDinoStatsCommand.cpp" />
+    <ClCompile Include="Commands\NextImprintCommand.cpp" />
+    <ClCompile Include="Commands\SuicideCommand.cpp" />
+    <ClCompile Include="Commands\DroppedEggsCommand.cpp" />
     <ClCompile Include="ImprovedCommands.cpp" />
-    <ClCompile Include="Tools.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ImprovedCommands.h" />
-    <ClInclude Include="Tools.h" />
+    <ClInclude Include="Commands\DestroyAllStructuresForTeamIdCommand.h" />
+    <ClInclude Include="Commands\DestroyDinosForTeamIdCommand.h" />
+    <ClInclude Include="Commands\DestroyMyDinoCommand.h" />
+    <ClInclude Include="Commands\DestroyStructuresForTeamIdAtPositionCommand.h" />
+    <ClInclude Include="Commands\DoRespecCommand.h" />
+    <ClInclude Include="Commands\FeedDinosForTeamIdCommand.h" />
+    <ClInclude Include="Commands\ImprintOnCommand.h" />
+    <ClInclude Include="Commands\MyDinoStatsCommand.h" />
+    <ClInclude Include="Commands\NextImprintCommand.h" />
+    <ClInclude Include="Commands\SuicideCommand.h" />
+    <ClInclude Include="Commands\DroppedEggsCommand.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
