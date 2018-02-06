@@ -1,6 +1,17 @@
 #include "MyDinoStatsCommand.h"
 #include <sstream>
 
+const std::map<EPrimalCharacterStatusValue::Type, std::string> stat_fields =
+{
+	{ EPrimalCharacterStatusValue::Health, "HP" },
+	{ EPrimalCharacterStatusValue::Stamina, "ST" },
+	{ EPrimalCharacterStatusValue::Oxygen, "OX" },
+	{ EPrimalCharacterStatusValue::Food, "FO" },
+	{ EPrimalCharacterStatusValue::Weight, "WE" },
+	{ EPrimalCharacterStatusValue::MeleeDamageMultiplier, "ME" },
+	{ EPrimalCharacterStatusValue::SpeedMultiplier, "MO" }
+};
+
 void MyDinoStatsChatCommand(AShooterPlayerController* aShooterPlayerController, FString* message, EChatSendMode::Type mode)
 {
 	auto cmd = ArkLibrary::GetCommand(CommandName_MyDinoStats_Chat);
@@ -26,7 +37,8 @@ void MyDinoStatsChatCommand(AShooterPlayerController* aShooterPlayerController, 
 	std::stringstream ss;
 
 	UPrimalCharacterStatusComponent* status = dino->GetCharacterStatusComponent();
-	if (status) {
+	if (status)
+	{
 		char* stats = status->NumberOfLevelUpPointsAppliedField()();
 		int health = (int)stats[0];
 		int stamina = (int)stats[1];
@@ -41,9 +53,59 @@ void MyDinoStatsChatCommand(AShooterPlayerController* aShooterPlayerController, 
 		int fortitude = (int)stats[10];
 		int craftingSpeed = (int)stats[11];
 
-		ss << "HP: " << health << ", ST: " << stamina << ", OX: " << oxygen << ", FO: " << food << ", WE: " << weight << ", ME: " << meleeDamage << ", MO: " << movementSpeed;
-	}
+		ss << "HP: " << health << ", ST: " << stamina << ", OX: " << oxygen 
+			<< ", FO: " << food << ", WE: " << weight << ", ME: " << meleeDamage 
+			<< ", MO: " << movementSpeed;
 
-	auto wcstring = ArkApi::Tools::ConvertToWideStr(ss.str());
-	ArkApi::GetApiUtils().SendChatMessage(aShooterPlayerController, L"[system]", wcstring.c_str());
+		ArkApi::GetApiUtils().SendChatMessage(aShooterPlayerController, L"[system]", ArkApi::Tools::ConvertToWideStr(ss.str()).c_str());
+		ss.str("");
+
+		auto base_stats_json = cmd->Json.find("BaseStats");
+		if (base_stats_json != cmd->Json.end() && base_stats_json->value("Show", false))
+		{
+			auto imprint_calc_str = ArkLibrary::str_tolower(base_stats_json->value("ImprintCalc", "current"));
+			auto te_calc_str = ArkLibrary::str_tolower(base_stats_json->value("TamingEfficiencyCalc", "current"));
+
+			auto imprint_calc = ImprintCalc::Current;
+			if (imprint_calc_str.compare("none") == 0) imprint_calc = ImprintCalc::None;
+			else if (imprint_calc_str.compare("best") == 0) imprint_calc = ImprintCalc::Best;
+
+			auto te_calc = TamingEffCalc::Current;
+			if (te_calc_str.compare("best") == 0) te_calc = TamingEffCalc::Best;
+
+			auto temp_name = FString(L"Temp");
+			auto comp_temp = dino->CreateComponentFromTemplate(reinterpret_cast<UActorComponent *>(status), &temp_name);
+			auto status_temp = reinterpret_cast<UPrimalCharacterStatusComponent *>(comp_temp);
+
+			comp_temp->OuterField() = reinterpret_cast<UActorComponent *>(status)->OuterField()();
+			auto base_levels = status_temp->NumberOfLevelUpPointsAppliedField()();
+
+			if (imprint_calc == ImprintCalc::Current) status_temp->DinoImprintingQualityField() = status->DinoImprintingQualityField()();
+			else if (imprint_calc == ImprintCalc::Best) status_temp->DinoImprintingQualityField() = 1.0;
+
+			if (te_calc == TamingEffCalc::Current) status_temp->TamingIneffectivenessMultiplierField() = status->TamingIneffectivenessMultiplierField()();
+			
+			status_temp->ExtraCharacterLevelField() = 0;
+			for (auto i = 0; i < 12; i++) base_levels[i] = stats[i];
+
+			status_temp->RescaleAllStats();
+
+			ss << std::endl;
+			auto num = 0;
+			for (auto sf : stat_fields)
+			{
+				FString str;
+				status_temp->GetStatusMaxValueString(&str, sf.first, true);
+
+				if (num > 0) ss << ", ";
+				ss << sf.second << ": " << str.ToString();
+
+				num++;
+			}
+
+			comp_temp->OuterField() = nullptr;
+
+			ArkApi::GetApiUtils().SendChatMessage(aShooterPlayerController, L"[system]", ArkApi::Tools::ConvertToWideStr(ss.str()).c_str());
+		}
+	}
 }

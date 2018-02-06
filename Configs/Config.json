@@ -14,6 +14,14 @@
             "Command": "DoRespec",
             "Enabled": true
         },
+        "DoRespecDino_Console": {
+            "Command": "DoRespecDino",
+            "Enabled": true
+        },
+        "DoRespecDino_Rcon": {
+            "Command": "DoRespecDino",
+            "Enabled": true
+        },
         "DestroyAllStructuresForTeamId_Console": {
             "Command": "DestroyAllStructuresForTeamId",
             "Enabled": true
@@ -69,7 +77,12 @@
         "MyDinoStats_Chat": {
             "Command": "/mydinostats",
             "Enabled": true,
-            "Permissions": false
+            "Permissions": false,
+            "BaseStats": {
+                "Show": true,
+                "ImprintCalc": "current",
+                "TamingEfficiencyCalc": "current"
+            }
         },
         "NextImprint_Console": {
             "Command": "NextImprint",

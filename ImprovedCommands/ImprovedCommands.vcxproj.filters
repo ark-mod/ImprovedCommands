@@ -60,6 +60,9 @@
     <ClCompile Include="Commands\DroppedEggsCommand.cpp">
       <Filter>Source Files\Commands</Filter>
     </ClCompile>
+    <ClCompile Include="Commands\DoRespecDinoCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Commands\DoRespecCommand.h">
@@ -96,6 +99,9 @@
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
     <ClInclude Include="Commands\DroppedEggsCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\DoRespecDinoCommand.h">
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,6 +7,7 @@
 #include "Commands/DestroyMyDinoCommand.h"
 #include "Commands/DestroyStructuresForTeamIdAtPositionCommand.h"
 #include "Commands/DoRespecCommand.h"
+#include "Commands/DoRespecDinoCommand.h"
 #include "Commands/FeedDinosForTeamIdCommand.h"
 #include "Commands/MyDinoStatsCommand.h"
 #include "Commands/DroppedEggsCommand.h"
@@ -41,7 +42,7 @@ void Load()
 
 		LoadConfig();
 		ArkLibrary::LoadCommandsAndFeatures(json);
-	
+
 		auto& commands = ArkApi::GetCommands();
 
 		// chat
@@ -55,6 +56,8 @@ void Load()
 		// console
 		ArkLibrary::AddCommand(CommandName_DoRespec_Console,
 			[&commands](wchar_t* name) { commands.AddConsoleCommand(name, &DoRespecConsoleCommand); });
+		ArkLibrary::AddCommand(CommandName_DoRespecDino_Console,
+			[&commands](wchar_t* name) { commands.AddConsoleCommand(name, &DoRespecDinoConsoleCommand); });
 		ArkLibrary::AddCommand(CommandName_DestroyAllStructuresForTeamId_Console,
 			[&commands](wchar_t* name) { commands.AddConsoleCommand(name, &DestroyAllStructuresForTeamIdConsoleCommand); });
 		ArkLibrary::AddCommand(CommandName_DestroyStructuresForTeamIdAtPosition_Console,
@@ -73,6 +76,8 @@ void Load()
 		// rcon
 		ArkLibrary::AddCommand(CommandName_DoRespec_Rcon, 
 			[&commands](wchar_t* name) { commands.AddRconCommand(name, &DoRespecRconCommand); });
+		ArkLibrary::AddCommand(CommandName_DoRespecDino_Rcon,
+			[&commands](wchar_t* name) { commands.AddRconCommand(name, &DoRespecDinoRconCommand); });
 		ArkLibrary::AddCommand(CommandName_DestroyAllStructuresForTeamId_Rcon, 
 			[&commands](wchar_t* name) { commands.AddRconCommand(name, &DestroyAllStructuresForTeamIdRconCommand); });
 		ArkLibrary::AddCommand(CommandName_DestroyStructuresForTeamIdAtPosition_Rcon, 
@@ -106,6 +111,8 @@ void Unload()
 	// console
 	ArkLibrary::RemoveCommand(CommandName_DoRespec_Console,
 		[&commands](wchar_t* name) { commands.RemoveConsoleCommand(name); });
+	ArkLibrary::RemoveCommand(CommandName_DoRespecDino_Console,
+		[&commands](wchar_t* name) { commands.RemoveConsoleCommand(name); });
 	ArkLibrary::RemoveCommand(CommandName_DestroyAllStructuresForTeamId_Console,
 		[&commands](wchar_t* name) { commands.RemoveConsoleCommand(name); });
 	ArkLibrary::RemoveCommand(CommandName_DestroyStructuresForTeamIdAtPosition_Console,
@@ -123,6 +130,8 @@ void Unload()
 
 	// rcon
 	ArkLibrary::RemoveCommand(CommandName_DoRespec_Rcon, 
+		[&commands](wchar_t* name) { commands.RemoveRconCommand(name); });
+	ArkLibrary::RemoveCommand(CommandName_DoRespecDino_Rcon,
 		[&commands](wchar_t* name) { commands.RemoveRconCommand(name); });
 	ArkLibrary::RemoveCommand(CommandName_DestroyAllStructuresForTeamId_Rcon, 
 		[&commands](wchar_t* name) { commands.RemoveRconCommand(name); });

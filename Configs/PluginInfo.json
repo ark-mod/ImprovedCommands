@@ -1,7 +1,7 @@
 {
   "FullName":"Improved Commands",
   "Description": "",
-  "Version":2.01,
+  "Version":2.02,
   "MinApiVersion":2.0,
   "Dependencies":[
     "Permissions"

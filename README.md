@@ -5,13 +5,18 @@
 Adds additional commands to ARK Survival Evolved servers using ARK Server API.
 
 ### Chat
-* **/MyDinoStats**: Prints the base stats (levels) of a owned and tamed dino in-front of the player.
+* **/MyDinoStats**: Prints the base levels, and optionally base stats, of a owned and tamed dino in-front of the player.
 * **/DestroyMyDino**: Deletes the owned and tamed dino in-front of the player from the ARK.
 * **/Suicide**: Kill your own character (to get unstuck etc.)
 
 ### Rcon and Console
 * **DoRespec `<steam id>`**: Force respec (mindwipe) of a character.
 Example: `DoRespec 12345678912345678`
+
+* **DoRespecDino `[<dino_id1> <dino_id2>]`**: Force respec of a tamed dino.
+  * **`DoRespecDino  123456789 123456789`**: Respec the given tamed dino.
+
+  * **`DoRespecDino`**: Respec the targeted tamed dino (console only).
 
 * **DestroyAllStructuresForTeamId `<team id>`**: Destroys all structures owned by a player or team.
 Example: `DestroyAllStructuresForTeamId 123456789`
@@ -67,6 +72,12 @@ In the configuration file `config.json` you may do the following
 
 #### DestroyMyDino configuration
 * Method: The method used when destroying a creature ("destroy" or "suicide").
+
+#### MyDinoStats configuration
+* BaseStats
+  * Show: Enable/disable calculation and output of base stats (in addition to base levels).
+  * ImprintCalc: Imprinting quality used in calculation ("none" => 0%, "current" => from dino, "best" => 100%)
+  * TamingEfficiencyCalc: Taming Efficiency used in calculation ("current" => from dino, "best" => 100%)
 
 
 ## Acknowledgements
