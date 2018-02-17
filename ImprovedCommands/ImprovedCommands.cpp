@@ -6,6 +6,7 @@
 #include "Commands/DestroyDinosForTeamIdCommand.h"
 #include "Commands/DestroyMyDinoCommand.h"
 #include "Commands/DestroyStructuresForTeamIdAtPositionCommand.h"
+#include "Commands/DinoIdCommand.h"
 #include "Commands/DoRespecCommand.h"
 #include "Commands/DoRespecDinoCommand.h"
 #include "Commands/FeedDinosForTeamIdCommand.h"
@@ -54,6 +55,8 @@ void Load()
 			[&commands](wchar_t* name) { commands.AddChatCommand(name, &SuicideChatCommand); });
 
 		// console
+		ArkLibrary::AddCommand(CommandName_DinoId_Console,
+			[&commands](wchar_t* name) { commands.AddConsoleCommand(name, &DinoIdConsoleCommand); });
 		ArkLibrary::AddCommand(CommandName_DoRespec_Console,
 			[&commands](wchar_t* name) { commands.AddConsoleCommand(name, &DoRespecConsoleCommand); });
 		ArkLibrary::AddCommand(CommandName_DoRespecDino_Console,
@@ -109,6 +112,8 @@ void Unload()
 		[&commands](wchar_t* name) { commands.RemoveChatCommand(name); });
 
 	// console
+	ArkLibrary::RemoveCommand(CommandName_DinoId_Console,
+		[&commands](wchar_t* name) { commands.RemoveConsoleCommand(name); });
 	ArkLibrary::RemoveCommand(CommandName_DoRespec_Console,
 		[&commands](wchar_t* name) { commands.RemoveConsoleCommand(name); });
 	ArkLibrary::RemoveCommand(CommandName_DoRespecDino_Console,

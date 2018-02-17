@@ -122,6 +122,7 @@
     <ClCompile Include="Commands\DestroyDinosForTeamIdCommand.cpp" />
     <ClCompile Include="Commands\DestroyMyDinoCommand.cpp" />
     <ClCompile Include="Commands\DestroyStructuresForTeamIdAtPositionCommand.cpp" />
+    <ClCompile Include="Commands\DinoIdCommand.cpp" />
     <ClCompile Include="Commands\DoRespecCommand.cpp" />
     <ClCompile Include="Commands\DoRespecDinoCommand.cpp" />
     <ClCompile Include="Commands\FeedDinosForTeamIdCommand.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="Commands\DestroyDinosForTeamIdCommand.h" />
     <ClInclude Include="Commands\DestroyMyDinoCommand.h" />
     <ClInclude Include="Commands\DestroyStructuresForTeamIdAtPositionCommand.h" />
+    <ClInclude Include="Commands\DinoIdCommand.h" />
     <ClInclude Include="Commands\DoRespecCommand.h" />
     <ClInclude Include="Commands\DoRespecDinoCommand.h" />
     <ClInclude Include="Commands\FeedDinosForTeamIdCommand.h" />

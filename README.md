@@ -5,11 +5,13 @@
 Adds additional commands to ARK Survival Evolved servers using ARK Server API.
 
 ### Chat
-* **/MyDinoStats**: Prints the base levels, and optionally base stats, of a owned and tamed dino in-front of the player.
+* **/MyDinoStats**: Prints the base levels, and optionally base stats, of an owned and tamed dino in-front of the player.
 * **/DestroyMyDino**: Deletes the owned and tamed dino in-front of the player from the ARK.
 * **/Suicide**: Kill your own character (to get unstuck etc.)
 
 ### Rcon and Console
+* **DinoId**: Get the dino IDs for the targeted dino (console only).
+
 * **DoRespec `<steam id>`**: Force respec (mindwipe) of a character.
 Example: `DoRespec 12345678912345678`
 

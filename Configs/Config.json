@@ -6,6 +6,10 @@
             "Permissions": false,
             "Method": "destroy"
         },
+        "DinoId_Console": {
+            "Command": "DinoId",
+            "Enabled": true
+        },
         "DoRespec_Console": {
             "Command": "DoRespec",
             "Enabled": true
