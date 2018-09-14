@@ -1,5 +1,9 @@
 # ARK Server API: Improved Commands (Plugin)
 
+## Contributions
+
+This plugin needs a new primary maintainer. If anyone wants to volunteer just let me know.
+
 ## Introduction
 
 Adds additional commands to ARK Survival Evolved servers using ARK Server API.
